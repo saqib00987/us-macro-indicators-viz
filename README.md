@@ -36,6 +36,10 @@ Two charts to frame the data:
 * Fed Funds Rate against unemployment, showing the delayed relationship between the policy rate and the labor market.
 * The 10y-2y Treasury spread with recession shading, where the spread turns negative ahead of the NBER-dated recessions.
 
+Fed Funds Rate against unemployment:
+
+![Fed Funds Rate vs Unemployment](figures/1_foundational/a1_fedfunds_vs_unemployment.png)
+
 Yield-curve inversion as a recession signal:
 
 ![Yield-curve spread with recession shading](figures/1_foundational/a2_yield_curve_spread.png)
