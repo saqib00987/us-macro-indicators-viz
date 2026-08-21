@@ -31,41 +31,37 @@ Derived columns include the yield-curve spread (`DGS10 - DGS2`), year-over-year 
 
 ### 1. Foundational views: [`notebooks/1_foundational_analysis.ipynb`](notebooks/1_foundational_analysis.ipynb)
 
-Two charts to frame the data:
+Two reference charts that frame the macro picture.
 
-* Fed Funds Rate against unemployment, showing the delayed relationship between the policy rate and the labor market.
-* The 10y-2y Treasury spread with recession shading, where the spread turns negative ahead of the NBER-dated recessions.
-
-Fed Funds Rate against unemployment:
+**Task (A.1): Do peaks in the Federal Funds Rate lead to rises in unemployment, and at what lag?** Overlay the two series and check whether rate-peak dates come before unemployment-peak dates across the major rate cycles.
 
 ![Fed Funds Rate vs Unemployment](figures/1_foundational/a1_fedfunds_vs_unemployment.png)
 
-Yield-curve inversion as a recession signal:
+**Result:** Both completed cycles confirm it. The rate peaked in July 2000 and unemployment peaked in June 2003 (a 35-month lag); the rate peaked in February 2007 and unemployment peaked in October 2009 (a 32-month lag). So unemployment consistently rises after a rate peak, at a lag of about 32 to 35 months, which is longer than a first-glance 12 to 24 month estimate. The 2020 COVID spike is a separate pandemic-driven anomaly, and the 2023 hiking cycle is still unfolding.
+
+**Task (A.2): Has the 10-year minus 2-year Treasury spread turned negative before every recession in the window?** Compute the spread, find its sub-zero episodes, and line them up against NBER recession start dates.
 
 ![Yield-curve spread with recession shading](figures/1_foundational/a2_yield_curve_spread.png)
 
+**Result:** Three inversions show up. Feb to Dec 2000 preceded the 2001 recession by 13 months, Dec 2005 to Jun 2007 preceded the 2008 recession by 24 months (shallow, but ahead of the worst downturn), and Jul 2022 to Aug 2024 was the deepest at -1.0% with its outcome still unfolding. The 2020 COVID recession had no preceding inversion because it was an external shock rather than a monetary-cycle downturn. Excluding that anomaly, every economic-cycle recession in the window was preceded by an inversion.
+
 ### 2. Transmission and sentiment: [`notebooks/2_transmission_and_sentiment.ipynb`](notebooks/2_transmission_and_sentiment.ipynb)
 
-The rate transmission part computes correlations on month-over-month changes rather than levels, so shared long-term trends don't produce false correlation. It measures the correlation between Fed Funds Rate changes and each variable at lags of 0, 6, 12, 18, 24, and 36 months, done separately for three periods (pre-2008, the zero-rate era of 2008-2020, and post-COVID). The final chart is a set of three side-by-side heatmaps so all three periods can be read at once. There is also an interactive Plotly version.
-
-The sentiment part scores each month with a composite macro-stress measure, built by z-scoring the changes in unemployment and inflation so neither dominates because of its units. Months are grouped into quartiles by shock size, and within each quartile the median sentiment reaction to bad-news months is compared against good-news months of similar size. A Mann-Whitney U test checks whether each gap is real or just noise. The result is backed up two more ways: a swing-rate analysis that detects peaks and troughs in the sentiment series and compares the speed of drops against recoveries, and a test of the skew in the distribution of monthly changes.
-
-One data note: FRED's `SP500` series only has real data from 2016 on, so the pre-2016 S&P 500 cells are marked as unavailable (hatched) instead of being filled with a constant that would give a false correlation.
-
-Rate transmission across the three periods:
+**Task (B.1): How does a change in the Federal Funds Rate transmit to mortgage rates, the S&P 500, inflation, and unemployment at different lags, and how does that differ across monetary regimes?** Correlations are computed on month-over-month changes rather than levels, so shared long-term trends don't produce false correlation, at lags of 0, 6, 12, 18, 24, and 36 months, done separately for three periods (pre-2008, the zero-rate era of 2008-2020, and post-COVID). The final chart is three side-by-side heatmaps so all periods read at once; an interactive Plotly version is also included. One data note: FRED's `SP500` series only has real data from 2016 on, so the pre-2016 S&P 500 cells are marked as unavailable (hatched) instead of being filled with a constant that would give a false correlation.
 
 ![Fed rate transmission heatmap](figures/2_transmission/b1_heatmap.png)
 
-Sentiment reaction, matched by shock size, with significance testing:
-
-![Sentiment asymmetry, magnitude-matched](figures/2_transmission/b2_composite_final.png)
-
-## Findings
+**Result:**
 
 * Transmission to unemployment is faster after COVID. In the pre-2008 period, unemployment's correlation with earlier Fed Funds changes only turns positive around lag 36. Post-COVID the same turn happens at lag 6 (+0.44), about 30 months sooner.
 * Inflation gives the clearest signal: positive at lag 0 post-COVID (+0.37) and turning negative by lags 18-24 (-0.32 to -0.38) as the rate hikes take effect.
 * The S&P 500 correlations stay weak across all periods and get weaker post-COVID, which fits the idea that markets price in expectations rather than react to the realized change.
-* Sentiment does react asymmetrically, but only for the largest shocks. The bad-versus-good gap is significant only in the top shock quartile (Q4, p = 0.045; median 3.40 vs 2.10 points). The smaller quartiles show no significant difference. Because Q4 would not survive a strict correction for running four tests, it's reported as suggestive rather than a firm result, and it lines up with the swing-rate analysis.
+
+**Task (B.2): Does consumer sentiment react more sharply to worsening conditions than to improvements of comparable size?** Each month is scored with a composite macro-stress measure, built by z-scoring the changes in unemployment and inflation so neither dominates because of its units. Months are grouped into quartiles by shock size, and within each quartile the median sentiment reaction to bad-news months is compared against good-news months of similar size. A Mann-Whitney U test checks whether each gap is real or just noise, and the result is backed up by a swing-rate analysis (comparing the speed of drops against recoveries) and a test of the skew in the distribution of monthly changes.
+
+![Sentiment asymmetry, magnitude-matched](figures/2_transmission/b2_composite_final.png)
+
+**Result:** Sentiment does react asymmetrically, but only for the largest shocks. The bad-versus-good gap is significant only in the top shock quartile (Q4, p = 0.045; median 3.40 vs 2.10 points), and the smaller quartiles show no significant difference. Because Q4 would not survive a strict correction for running four tests, it's reported as suggestive rather than a firm result, and it lines up with the swing-rate analysis.
 
 ## Repository structure
 
