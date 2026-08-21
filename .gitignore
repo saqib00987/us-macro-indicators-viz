@@ -1,0 +1,17 @@
+# Jupyter
+**/.ipynb_checkpoints
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# PowerPoint / office temp lock files
+~$*
