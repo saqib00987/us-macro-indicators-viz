@@ -3,17 +3,12 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python
-  - scipy
-  - vega_datasets
-  - vega
+  - python>=3.11
+  - pandas>=2.2.3
+  - numpy>=1.26.4
+  - scipy>=1.13.1
+  - matplotlib>=3.8.4
+  - plotly>=6.0.1
+  - requests>=2.32.3
   - jupyterlab
-  - nodejs[version='>=10']
-  - numpy
-  - matplotlib
   - notebook
-  - scikit-learn
-  - seaborn
-  - ipywidgets
-  - pandas
-  - altair
