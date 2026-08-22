@@ -1,8 +1,11 @@
 # U.S. Macroeconomic Indicators: A Visual Analysis (FRED, 2000–2026)
 
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![pandas](https://img.shields.io/badge/pandas-2.2-150458)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-3.8-11557c)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-2.2.3-150458?logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-1.26.4-013243?logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-3.8.4-11557c)
+![Plotly](https://img.shields.io/badge/Plotly-6.0.1-3F4F75?logo=plotly&logoColor=white)
+![SciPy](https://img.shields.io/badge/SciPy-1.13.1-8CAAE6?logo=scipy&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 When the Federal Reserve raises interest rates, unemployment does not follow for roughly three years. This project traces that delay, and three other relationships, across eight U.S. macroeconomic indicators covering the dot-com bust, the 2008 financial crisis, and COVID.
@@ -23,7 +26,7 @@ Eight FRED series from 2000 to 2026, resampled to monthly frequency (about 310 r
 1. [`1_foundational_analysis.ipynb`](notebooks/1_foundational_analysis.ipynb) sets up the basic picture with two reference charts: the Federal Funds Rate against unemployment, and the 10-year minus 2-year yield spread as a recession signal.
 2. [`2_transmission_and_sentiment.ipynb`](notebooks/2_transmission_and_sentiment.ipynb) does the deeper analysis: a lagged-correlation study of how rate changes spread through the economy, and a significance test of whether consumer sentiment reacts asymmetrically to good versus bad news.
 
-Written in Python with pandas, Matplotlib, and Plotly.
+Written in Python with pandas, Matplotlib, Plotly, and SciPy.
 
 ## Dataset
 
