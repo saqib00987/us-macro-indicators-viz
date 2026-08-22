@@ -10,7 +10,7 @@
 
 When the Federal Reserve raises interest rates, unemployment does not follow for roughly three years. This project traces that delay, and three other relationships, across eight U.S. macroeconomic indicators covering the dot-com bust, the 2008 financial crisis, and COVID.
 
-![Sentiment asymmetry, magnitude-matched](figures/2_transmission/b2_composite_final.png)
+![Fed Funds Rate vs Unemployment](figures/1_foundational/a1_fedfunds_vs_unemployment.png)
 
 ## Key findings
 
