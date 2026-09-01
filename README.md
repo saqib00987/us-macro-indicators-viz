@@ -14,7 +14,7 @@ When the Federal Reserve raises interest rates, unemployment does not follow for
 
 ## Key findings
 
-* **Rate peaks lead unemployment peaks by about 32 to 35 months.** Both completed rate cycles confirm it, a longer lag than the commonly cited 12 to 24 month estimate.
+* **Rate peaks lead unemployment peaks by about 32 to 35 months.** Both completed rate cycles confirm it, a longer lag than the 12 to 24 months I initially expected.
 * **Every economic-cycle recession in the window was preceded by a yield-curve inversion.** The 2020 COVID recession is the sole exception, and it was an external shock rather than a monetary-cycle downturn.
 * **Fed rate transmission to unemployment is roughly 30 months faster after COVID.** The correlation turns positive at lag 36 pre-2008, but at lag 6 post-COVID.
 * **Consumer sentiment reacts more sharply to bad news than to good news of comparable size, but only at the largest shocks.** The effect is statistically significant in the top shock quartile alone (p = 0.045), and is reported as suggestive rather than firm.
@@ -68,7 +68,7 @@ Two reference charts that frame the macro picture.
 
 * Rate peaked July 2000, unemployment peaked June 2003 (35-month lag).
 * Rate peaked February 2007, unemployment peaked October 2009 (32-month lag).
-* The lag of roughly 32 to 35 months runs longer than a first-glance 12 to 24 month estimate.
+* The lag of roughly 32 to 35 months runs longer than the 12 to 24 months I expected at the outset, so the initial hypothesis was revised to match what the data showed.
 * The 2020 COVID spike is a separate pandemic-driven anomaly, and the 2023 hiking cycle is still unfolding.
 
 **Task (A.2): Has the 10-year minus 2-year Treasury spread turned negative before every recession in the window?** Compute the spread, find its sub-zero episodes, and line them up against NBER recession start dates.
@@ -84,7 +84,7 @@ Two reference charts that frame the macro picture.
 
 ### 2. Transmission and sentiment: [`notebooks/2_transmission_and_sentiment.ipynb`](notebooks/2_transmission_and_sentiment.ipynb)
 
-**Task (B.1): How does a change in the Federal Funds Rate transmit to mortgage rates, the S&P 500, inflation, and unemployment at different lags, and how does that differ across monetary regimes?** Correlations are computed on month-over-month changes at lags of 0, 6, 12, 18, 24, and 36 months, separately for three periods (pre-2008, the zero-rate era of 2008 to 2020, and post-COVID). The final chart is three side-by-side heatmaps so all periods read at once; an interactive Plotly version is also included.
+**Task (B.1): How does a change in the Federal Funds Rate transmit to mortgage rates, the S&P 500, inflation, and unemployment at different lags, and how does that differ across monetary regimes?** Correlations are computed on month-over-month changes at lags of 0, 6, 12, 18, 24, and 36 months, separately for three periods (pre-2008, the zero-rate era of 2008 to 2020, and post-COVID). The final chart is three side-by-side heatmaps so all periods read at once. The notebook also contains an interactive Plotly version, which needs to be run locally since GitHub's preview does not render interactive output.
 
 ![Fed rate transmission heatmap](figures/2_transmission/b1_heatmap.png)
 
@@ -119,7 +119,7 @@ us-macro-indicators-viz/
 └── README.md
 ```
 
-Both notebooks render fully in GitHub's preview, figures included.
+Both notebooks render fully in GitHub's preview, static figures included. The interactive Plotly chart in notebook 2 requires running it locally.
 
 ## Running it
 
