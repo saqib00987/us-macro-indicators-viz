@@ -16,14 +16,14 @@ When the Federal Reserve raises interest rates, unemployment does not follow for
 
 * **Rate peaks lead unemployment peaks by about 32 to 35 months.** Both completed rate cycles confirm it, a longer lag than the 12 to 24 months I initially expected.
 * **Every economic-cycle recession in the window was preceded by a yield-curve inversion.** The 2020 COVID recession is the sole exception, and it was an external shock rather than a monetary-cycle downturn.
-* **Fed rate transmission to unemployment is roughly 30 months faster after COVID.** The correlation turns positive at lag 36 pre-2008, but at lag 6 post-COVID.
+* **Fed rate transmission to unemployment is markedly faster after COVID.** Pre-2008 the correlation stays near zero through lag 24 and only reaches +0.24 at lag 36, while post-COVID it is already +0.44 by lag 6.
 * **Consumer sentiment reacts more sharply to bad news than to good news of comparable size, but only at the largest shocks.** The effect is statistically significant in the top shock quartile alone (p = 0.045), and is reported as suggestive rather than firm.
 
 ## Overview
 
 Eight FRED series from 2000 to 2026, resampled to monthly frequency (about 310 rows). The analysis is split across two notebooks:
 
-1. [`1_foundational_analysis.ipynb`](notebooks/1_foundational_analysis.ipynb) sets up the basic picture with two reference charts: the Federal Funds Rate against unemployment, and the 10-year minus 2-year yield spread as a recession signal.
+1. [`1_foundational_analysis.ipynb`](notebooks/1_foundational_analysis.ipynb) sets up the basic picture with two foundational charts: the Federal Funds Rate against unemployment, and the 10-year minus 2-year yield spread as a recession signal.
 2. [`2_transmission_and_sentiment.ipynb`](notebooks/2_transmission_and_sentiment.ipynb) does the deeper analysis: a lagged-correlation study of how rate changes spread through the economy, and a significance test of whether consumer sentiment reacts asymmetrically to good versus bad news.
 
 Written in Python with pandas, Matplotlib, Plotly, and SciPy.
@@ -58,7 +58,7 @@ A few deliberate choices shaped the analysis, mostly aimed at not letting the ch
 
 ### 1. Foundational views: [`notebooks/1_foundational_analysis.ipynb`](notebooks/1_foundational_analysis.ipynb)
 
-Two reference charts that frame the macro picture.
+Two charts that frame the macro picture.
 
 **Task (A.1): Do peaks in the Federal Funds Rate lead to rises in unemployment, and at what lag?** Overlay the two series and check whether rate-peak dates come before unemployment-peak dates across the major rate cycles.
 
@@ -90,9 +90,10 @@ Two reference charts that frame the macro picture.
 
 **Result:**
 
-* Transmission to unemployment is faster after COVID. In the pre-2008 period, unemployment's correlation with earlier Fed Funds changes only turns positive around lag 36. Post-COVID the same turn happens at lag 6 (+0.44), about 30 months sooner.
-* Inflation gives the clearest signal: positive at lag 0 post-COVID (+0.37), turning negative by lags 18 to 24 (-0.32 to -0.38) as the rate hikes take effect.
-* The S&P 500 correlations stay weak across all periods and get weaker post-COVID, consistent with markets pricing in expectations rather than reacting to the realized change.
+* Transmission to unemployment is faster after COVID. Pre-2008 the correlation crosses zero around lag 18 but stays negligible there (0.02 at lag 18, 0.07 at lag 24), reaching a meaningful +0.24 only at lag 36. Post-COVID it is already +0.44 at lag 6, so a comparable positive correlation appears roughly 30 months sooner.
+* Inflation gives the clearest signal: +0.37 at lag 0 post-COVID, turning negative from lag 12 and deepening to -0.32 and -0.38 at lags 18 and 24 as the rate hikes take effect.
+* The S&P 500 correlations stay weak in both periods where data exists, peaking at 0.25 in the zero-rate era and only 0.14 post-COVID, consistent with markets pricing in expectations rather than reacting to the realized change. Pre-2016 cells are unavailable, so the pre-2008 panel is left blank.
+* Mortgage rates stay weak throughout, never exceeding 0.18 in absolute terms before COVID and reaching -0.29 at lag 24 post-COVID, so no strong or consistent transmission shows up at these lags.
 
 **Task (B.2): Does consumer sentiment react more sharply to worsening conditions than to improvements of comparable size?** Each month is scored with a composite macro-stress measure, grouped into quartiles by shock size, and within each quartile the median sentiment reaction to bad-news months is compared against good-news months of similar size. A Mann-Whitney U test checks whether each gap is real or just noise, backed up by a swing-rate analysis (comparing the speed of drops against recoveries) and a test of the skew in the distribution of monthly changes.
 
