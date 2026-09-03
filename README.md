@@ -91,8 +91,8 @@ Two charts that frame the macro picture.
 **Result:**
 
 * Transmission to unemployment is faster after COVID. Pre-2008 the correlation crosses zero around lag 18 but stays negligible there (0.02 at lag 18, 0.07 at lag 24), reaching a meaningful +0.24 only at lag 36. Post-COVID it is already +0.44 at lag 6, so a comparable positive correlation appears roughly 30 months sooner.
-* Inflation gives the clearest signal: +0.37 at lag 0 post-COVID, turning negative from lag 12 and deepening to -0.32 and -0.38 at lags 18 and 24 as the rate hikes take effect.
-* The S&P 500 correlations stay weak in both periods where data exists, peaking at 0.25 in the zero-rate era and only 0.14 post-COVID, consistent with markets pricing in expectations rather than reacting to the realized change. Pre-2016 cells are unavailable, so the pre-2008 panel is left blank.
+* Inflation gives the clearest signal, but only after COVID. Pre-2008 the correlations are uniformly weak and flat (0.08 to 0.15 across every lag, with no reversal). The zero-rate era shows a partial version: +0.29 at lag 0, fading through the middle lags to -0.16 at lag 36. Post-COVID the full pattern appears: +0.37 at lag 0, turning negative from lag 12 and deepening to -0.32 and -0.38 at lags 18 and 24 as the rate hikes take effect.
+* The S&P 500 correlations stay weak wherever they can be computed, peaking at 0.25 in the zero-rate era and only 0.14 post-COVID, consistent with markets pricing in expectations rather than reacting to the realized change. Because the series begins in 2016, the pre-2008 panel has no data at all and is hatched, and the zero-rate panel (2008 to 2020) rests only on its 2016 onward portion, so those figures cover roughly a third of that window.
 * Mortgage rates stay weak throughout, never exceeding 0.18 in absolute terms before COVID and reaching -0.29 at lag 24 post-COVID, so no strong or consistent transmission shows up at these lags.
 
 **Task (B.2): Does consumer sentiment react more sharply to worsening conditions than to improvements of comparable size?** Each month is scored with a composite macro-stress measure, grouped into quartiles by shock size, and within each quartile the median sentiment reaction to bad-news months is compared against good-news months of similar size. A Mann-Whitney U test checks whether each gap is real or just noise, backed up by a swing-rate analysis (comparing the speed of drops against recoveries) and a test of the skew in the distribution of monthly changes.
@@ -149,7 +149,7 @@ Then open the notebooks in `notebooks/` and run all cells, starting with noteboo
 
 * The numbers reflect FRED data at run time and can move a little as series get revised.
 * The Q4 sentiment result is marginal. The full significance discussion is in notebook 2.
-* The S&P 500 series has no pre-2016 data on FRED, so those cells are left blank rather than filled in.
+* The S&P 500 series begins in 2016 on FRED. The pre-2008 panel therefore has no data and is marked unavailable rather than filled in, and the zero-rate era figures are computed from only the 2016 to 2020 part of that window.
 * Monthly data across 26 years is a modest sample for strong statistical claims, particularly once it is split by regime, which is why the sentiment finding is framed as suggestive.
 
 ## Acknowledgment
